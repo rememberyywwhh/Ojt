@@ -1,17 +1,12 @@
 package Ojt;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,8 +16,8 @@ import javax.swing.SwingConstants;
 public class Busbillvalidator {
 	JFrame frame = new JFrame("Busbillvalidator");
 	JLabel lbltime = new JLabel();
-	JComboBox cboid = new JComboBox<>();
-	JComboBox cbolocation = new JComboBox<>();
+	JComboBox<String> cboid = new JComboBox<String>();
+	JComboBox<String> cbolocation = new JComboBox<String>();
 	JPanel p = new JPanel();
 	JPanel p1 = new JPanel();
 	JLabel show = new JLabel();
@@ -46,7 +41,7 @@ public class Busbillvalidator {
 				Db db = new Db();
 				db.setId(cardid);
 				db.getdata();
-				db.adddataHistory(busNo.getText(), (String) cbolocation.getSelectedItem(), lbltime.getText());
+				db.adddataHistory(busNo.getText(), (String) cbolocation.getSelectedItem());
 				amount = db.getamount();
 				if (!amount.equals("")) {
 					int calculateamount = Integer.parseInt(amount);
@@ -69,7 +64,7 @@ public class Busbillvalidator {
 		lbltime.setHorizontalAlignment(SwingConstants.CENTER);
 		show.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(width, height);
 		frame.setLayout(new GridLayout(0, 2, 10, 10));
 		p.setLayout(new BorderLayout());
