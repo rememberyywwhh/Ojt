@@ -14,6 +14,10 @@ public class Db {
 	private String calculateamount = "";
 	private String busNo = "";
 	private String bLocation = "";
+	//for appforuserandstaff
+	private String tfUser = "";
+	private String pfPass="";
+
 	public Db() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -82,4 +86,17 @@ public class Db {
 		this.calculateamount = calculateamount;
 
 	}
+	//for appforuserandstaff
+
+	public void setTfUser(String tfUser) {
+		this.tfUser = tfUser;
+	}
+
+	public void setPfPass(String pfPass) {
+		this.pfPass = pfPass;
+	}
+	public String getPfPass() {
+		return pfPass;
+	}
+
 }
