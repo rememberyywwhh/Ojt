@@ -108,9 +108,9 @@ public class Register extends javax.swing.JFrame {
 				registerDb db = new registerDb();
 				
 					if (!tfName.getText().equals("") && !tfNRC.getText().equals("") && !tfBirth.getText().equals("") && !jTextArea1.getText().equals("") && !tfGmail.getText().equals("") && !new String(jPasswordField2.getPassword()).equals("") && !new String(mPassConfirm.getPassword()).equals("")) {
-						System.out.println(1);
+						
 					}
-					//bG.getSelection().getActionCommand()
+					//bG.getSelection().getActionCommand();
 					else {
 						db.isempty(tfName.getText(),tfNRC.getText(),tfBirth.getText(),jTextArea1.getText(),tfGmail.getText(),new String(jPasswordField2.getPassword()),new String(mPassConfirm.getPassword()));
 						
@@ -193,8 +193,8 @@ public class Register extends javax.swing.JFrame {
 		btnBack.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButton2ActionPerformed(evt);
-				Staff sf = new Staff();
-				sf.setVisible(true);
+				//Staff sf = new Staff();
+				//sf.setVisible(true);
 				dispose();
 			}
 		});
