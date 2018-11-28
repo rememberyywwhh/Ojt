@@ -86,31 +86,41 @@ public class registerDb {
 	}
 	public boolean register() {
 		try {
-			String query = "INSERT INTO `member` (`mId`, `mName`, `mNRC`, `mGender`, `mbirthday`, `mAddress`, `mEmail`, `mPass`, `amount`) VALUES (NULL, ?, ?,'Male', ?, ?, ?, ?, ?)";
+			String query = "INSERT INTO `member` (`mId`, `mName`, `mNRC`, `mGender`, `mbirthday`, `mAddress`, `mEmail`, `mPass`, `amount`) VALUES (NULL, ?, ?,?, ?, ?, ?, ?, ?)";
 			ps = con.prepareStatement(query);
 			ps.setString(1, data.get(0));
 			ps.setString(2, data.get(1));
-			ps.setString(3, data.get(2));
-			ps.setString(4, data.get(3));
-			ps.setString(5, data.get(4));
-			ps.setString(6, data.get(5));
-			ps.setString(7, "1000");
+			ps.setString(3, Gender);
+			ps.setString(4, data.get(2));
+			ps.setString(5, data.get(3));
+			ps.setString(6, data.get(4));
+			ps.setString(7, data.get(5));
+			ps.setString(8, "1000");
 			ps.executeUpdate();
 
 		} catch (Exception e) {
-			System.out.println("Error" + e);
+			JOptionPane.showMessageDialog(JFrame, ""+e);
 		}
+		register=true;
 		return register;
 	}
 	public boolean passconfig() {
 		if (data.get(5).equals(data.get(6))) {
 			passconfig=true;
 		}
+		else {
+			JOptionPane.showMessageDialog(JFrame, "Config pass r not same");
+		}
 		return passconfig;
 		
 	}
-	public void setGender() {
+	public void setGender(String Gender) {
 		this.Gender=Gender;
+	}
+
+	public boolean getRegister() {
+		
+		return register;
 	}
 
 }
